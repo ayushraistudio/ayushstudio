@@ -1,60 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Home -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ayushraistudio.netlify.app/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ayushraistudio.com/"/>
     <lastmod>2025-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- About -->
   <url>
     <loc>https://ayushraistudio.netlify.app/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ayushraistudio.com/about"/>
     <lastmod>2025-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Projects -->
   <url>
     <loc>https://ayushraistudio.netlify.app/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ayushraistudio.com/projects"/>
     <lastmod>2025-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Skills -->
   <url>
     <loc>https://ayushraistudio.netlify.app/skills</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ayushraistudio.com/skills"/>
     <lastmod>2025-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Contact -->
   <url>
     <loc>https://ayushraistudio.netlify.app/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ayushraistudio.com/contact"/>
     <lastmod>2025-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Resume -->
   <url>
     <loc>https://ayushraistudio.netlify.app/resume</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ayushraistudio.com/resume"/>
     <lastmod>2025-11-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
 </urlset>
