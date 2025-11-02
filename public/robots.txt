@@ -1,11 +1,4 @@
-# robots.txt for Ayush Rai Portfolio
-# Learn more: https://www.robotstxt.org/robotstxt.html
-
 User-agent: *
 Allow: /
 
-# Prevent duplicate crawling on Netlify subdomain
-Disallow: https://ayushraistudio.netlify.app/
-
-# Sitemap for Google and other search engines
-Sitemap: https://ayushraistudio.com/sitemap.xml
+Sitemap: https://ayushraistudio.netlify.app/sitemap.xml
