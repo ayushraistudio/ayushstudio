@@ -1,72 +1,75 @@
-#skills {
+.skills-section {
   padding: 80px 7%;
   text-align: center;
-  background: #f9fafc;
+  transition: background-color 0.4s, color 0.4s;
 }
 
-.skills-title {
+.skills-section h2 {
   font-size: 2rem;
-  font-weight: 700;
-  color: #222;
+  margin-bottom: 10px;
 }
 
-.skills-subtitle {
-  margin-top: 8px;
-  font-size: 1rem;
-  color: #555;
+.subheading {
+  color: #666;
+  margin-bottom: 40px;
 }
 
 .skill-category {
-  margin-top: 50px;
+  margin-bottom: 60px;
 }
 
 .skill-category h3 {
-  margin-bottom: 20px;
-  color: #007bff;
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  color: var(--accent-color, #007bff);
 }
 
-.skills-grid {
+.skill-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 20px;
   justify-items: center;
 }
 
 .skill-card {
-  background: white;
-  border-radius: 12px;
+  background: var(--card-bg, #f5f5f5);
+  color: var(--text-color, #222);
+  border-radius: 15px;
   padding: 15px 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
   width: 120px;
+  transition: transform 0.3s, background 0.4s;
 }
 
 .skill-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  transform: translateY(-5px) scale(1.05);
+  background: var(--hover-bg, #e3e3e3);
 }
 
-.skill-icon {
-  font-size: 1.4rem;
-  color: #007bff;
-  display: block;
+.skill-card .icon {
+  font-size: 30px;
+  margin-bottom: 8px;
 }
 
 .skill-card p {
-  margin-top: 6px;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #333;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  #skills {
-    padding: 50px 5%;
-  }
-  .skills-title {
-    font-size: 1.7rem;
-  }
+/* 🌙 Dark Mode */
+.App.dark .skills-section {
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.App.dark .subheading {
+  color: #a0a0a0;
+}
+
+.App.dark .skill-card {
+  background: #161b22;
+  color: #fff;
+}
+
+.App.dark .skill-card:hover {
+  background: #1f242d;
 }
