@@ -1,72 +1,46 @@
-#skills {
-  padding: 80px 7%;
-  text-align: center;
-  background: #f9fafc;
-}
+import React from "react";
+import "./Skills.css";
 
-.skills-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-}
+const skillsData = [
+  {
+    category: "💻 Frontend",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Bootstrap"],
+  },
+  {
+    category: "⚙️ Tools & Platforms",
+    skills: ["Firebase", "GitHub", "VS Code", "Netlify", "Figma"],
+  },
+  {
+    category: "🎨 Design & Branding",
+    skills: ["UI/UX Design", "Wireframing", "Logo Design", "Prototyping"],
+  },
+  {
+    category: "🚀 Currently Learning",
+    skills: ["Next.js", "TypeScript", "Cloud (Firebase / Vercel)"],
+  },
+];
 
-.skills-subtitle {
-  margin-top: 8px;
-  font-size: 1rem;
-  color: #555;
-}
+const Skills = () => {
+  return (
+    <section id="skills">
+      <h2 className="skills-title">Skills & Proficiency</h2>
+      <p className="skills-subtitle">Technologies and Tools I work with</p>
 
-.skill-category {
-  margin-top: 50px;
-}
+      {skillsData.map((group, index) => (
+        <div key={index} className="skill-category">
+          <h3>{group.category}</h3>
+          <div className="skills-grid">
+            {group.skills.map((skill, i) => (
+              <div key={i} className="skill-card">
+                <span className="skill-icon">⚡</span>
+                <p>{skill}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+};
 
-.skill-category h3 {
-  margin-bottom: 20px;
-  color: #007bff;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.skill-card {
-  background: white;
-  border-radius: 12px;
-  padding: 15px 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  width: 120px;
-}
-
-.skill-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-}
-
-.skill-icon {
-  font-size: 1.4rem;
-  color: #007bff;
-  display: block;
-}
-
-.skill-card p {
-  margin-top: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #333;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #skills {
-    padding: 50px 5%;
-  }
-  .skills-title {
-    font-size: 1.7rem;
-  }
-}
+export default Skills;
