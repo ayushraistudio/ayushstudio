@@ -11,7 +11,7 @@ import {
   FaCloud,
   FaTools,
 } from "react-icons/fa";
-import { SiFirebase, SiVercel, SiTailwindcss, SiVisualstudiocode, SiNetlify } from "react-icons/si";
+import { SiFirebase, SiVercel, SiTailwindcss, SiVisualstudioCode, SiNetlify } from "react-icons/si";
 
 const skillCategories = [
   {
