@@ -4,6 +4,7 @@ import profileImg from '../assets/images/profile.webp';
 import resumePdf from '../assets/resume/resume.pdf';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
+import { Link } from 'react-router-dom'; // ✅ Added for internal routing
 
 const Hero = () => {
   return (
@@ -28,14 +29,20 @@ const Hero = () => {
         </h2>
 
         <div className="cta">
-          <a className="btn" href="#projects">View Projects</a>
-          <a className="btn-secondary" href="mailto:ayushraistudio@gmail.com">Contact Me</a>
-          <a className="btn" href={resumePdf}download>Download Resume</a>
+          {/* ✅ Fixed: Use React Router Link instead of href="#projects" */}
+          <Link className="btn" to="/projects">View Projects</Link>
+
+          <a className="btn-secondary" href="mailto:ayushraistudio@gmail.com">
+            Contact Me
+          </a>
+
+          <a className="btn" href={resumePdf} download>
+            Download Resume
+          </a>
         </div>
       </div>
 
       <aside className="profile-card">
-        {/* ✅ Lazy loading + width/height added to prevent layout shift */}
         <img
           src={profileImg}
           alt="Ayush Rai Profile"
