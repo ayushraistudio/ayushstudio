@@ -1,4 +1,5 @@
 import React from "react";
+import { SiVisualstudiocode } from "react-icons/si";
 import "./Skills.css";
 import {
   FaHtml5,
@@ -12,7 +13,7 @@ import {
   FaTools,
 } from "react-icons/fa";
 import { SiFirebase, SiVercel, SiTailwindcss, SiVisualstudioCode, SiNetlify } from "react-icons/si";
-import { SiVisualstudiocode } from "react-icons/si";
+
 const skillCategories = [
   {
     title: "💻 Frontend",
