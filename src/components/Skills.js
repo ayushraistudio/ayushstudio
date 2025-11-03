@@ -21,7 +21,7 @@ const skillCategories = [
       { name: "CSS", icon: <FaCss3Alt color="#1572B6" /> },
       { name: "JavaScript", icon: <FaJsSquare color="#F7DF1E" /> },
       { name: "React", icon: <FaReact color="#61DBFB" /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss color="#38BDF8" /> },
+      { name: "Tailwind  CSS", icon: <SiTailwindcss color="#38BDF8" /> },
       { name: "Bootstrap", icon: <FaBootstrap color="#7952B3" /> },
     ],
   },
