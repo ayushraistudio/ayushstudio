@@ -1,5 +1,5 @@
 import React from "react";
-import { SiVisualstudiocode } from "react-icons/si";
+import { SiVisualstudio } from "react-icons/si";
 import "./Skills.css";
 import {
   FaHtml5,
@@ -12,7 +12,7 @@ import {
   FaCloud,
   FaTools,
 } from "react-icons/fa";
-import { SiFirebase, SiVercel, SiTailwindcss, SiVisualstudioCode, SiNetlify } from "react-icons/si";
+import { SiFirebase, SiVercel, SiTailwindcss, SiNetlify } from "react-icons/si";
 
 const skillCategories = [
   {
@@ -31,7 +31,7 @@ const skillCategories = [
     items: [
       { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
       { name: "GitHub", icon: <FaGitAlt color="#F1502F" /> },
-      { name: "VS Code", icon: <SiVisualstudiocode color="#007ACC" /> },
+      { name: "VS Code", icon: <SiVisualstudio color="#007ACC" /> },
       { name: "Netlify", icon: <SiNetlify color="#00C7B7" /> },
       { name: "Figma", icon: <FaFigma color="#F24E1E" /> },
     ],
