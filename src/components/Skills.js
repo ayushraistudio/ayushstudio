@@ -1,5 +1,4 @@
 import React from "react";
-import { SiVisualstudio } from "react-icons/si";
 import "./Skills.css";
 import {
   FaHtml5,
@@ -31,7 +30,6 @@ const skillCategories = [
     items: [
       { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
       { name: "GitHub", icon: <FaGitAlt color="#F1502F" /> },
-      { name: "VS Code", icon: <SiVisualstudio color="#007ACC" /> },
       { name: "Netlify", icon: <SiNetlify color="#00C7B7" /> },
       { name: "Figma", icon: <FaFigma color="#F24E1E" /> },
     ],
