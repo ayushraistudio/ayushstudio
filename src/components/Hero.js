@@ -4,7 +4,7 @@ import profileImg from '../assets/images/profile.webp';
 import resumePdf from '../assets/resume/resume.pdf';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
-import { Link } from 'react-router-dom'; // ✅ Added for internal routing
+import { Link } from 'react-router-dom'; 
 
 const Hero = () => {
   return (
