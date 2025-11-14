@@ -61,7 +61,7 @@ const Contact = () => {
         <button type="submit" className="btn">Send Message</button>
         <p className="note">{msg}</p>
       </form>
-      <p>Or email me directly: <a href="mailto:ayushraistudio@gmail.com">ayushraistudio@gmail.com</a></p>
+      <p>Or email me directly: <a href="mailto:info@ayushraistudio.com">info@ayushraistudio.com</a></p>
     </section>
   );
 };
