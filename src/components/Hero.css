@@ -59,8 +59,21 @@
   text-align: center;
 }
 
+/* remove */
+.profile-card img {
+  width: 230px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.25);
+  transition: 0.3s ease;
+}
 
-
+.profile-card img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.45);
+}
+/* remove
 .profile-card img {
   width: 230px;
   aspect-ratio: 1/1;
@@ -68,7 +81,8 @@
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
-}
+}*/
+
 
 .profile-info h3 {
   margin-top: 10px;
