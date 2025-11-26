@@ -47,8 +47,7 @@ const Hero = () => {
           src={profileImg}
           alt="Ayush Rai Profile"
           loading="lazy"
-          width="320"
-          height="320"
+          
           decoding="async"
           style={{ borderRadius: '50%', objectFit: 'cover' }}
         />
