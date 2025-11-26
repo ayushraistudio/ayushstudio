@@ -59,9 +59,13 @@
   text-align: center;
 }
 
+
+
 .profile-card img {
-  width: 200px;
+  width: 230px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
+  object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
 }
