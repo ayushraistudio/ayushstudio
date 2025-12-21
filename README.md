@@ -46,16 +46,16 @@ It showcases my profile, skills, projects, and contact information in a clean an
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](screenshots/home.webp)
+![Home Page](screenshots/Home.png)
 
 ### Dark Mode
-![Dark Mode](screenshots/dark-mode.webp)
+![Dark Mode](screenshots/dark-mode.png)
 
 ### Projects Section
-![Projects](screenshots/projects.webp)
+![Projects](screenshots/projects.png)
 
 ### Contact Section
-![Contact](screenshots/contact.webp)
+![Contact](screenshots/contact.png)
 
 ---
 
