@@ -17,8 +17,8 @@ const projects = [
     title: "Exam Portal",
     desc: "Secure exam system using JS + Firebase Auth — simple UI & robust flow.",
     img: project2,
-    tags: ["HTML", "CSS", "JS", "Firebase"],
-    demo: "https://exam-porta.netlify.app",
+    tags: ["React", "tailwind css", "JS", "Firebase"],
+    demo: "https://exam-porta.vercel.app",
     code: "https://github.com/ayushraistudio/exam-portal",
   },
   {
