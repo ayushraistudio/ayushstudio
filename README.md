@@ -45,7 +45,17 @@ It showcases my profile, skills, projects, and contact information in a clean an
 
 ## 📸 Screenshots
 
-(Add screenshots of homepage, dark mode, projects section, contact section here)
+### Home Page
+![Home Page](screenshots/home.webp)
+
+### Dark Mode
+![Dark Mode](screenshots/dark-mode.webp)
+
+### Projects Section
+![Projects](screenshots/projects.webp)
+
+### Contact Section
+![Contact](screenshots/contact.webp)
 
 ---
 
