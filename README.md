@@ -53,4 +53,4 @@ It showcases my profile, skills, projects, and contact information in a clean an
 
 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/ayushraistudio/ayushstudio>
