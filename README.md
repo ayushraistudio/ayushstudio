@@ -49,7 +49,7 @@ It showcases my profile, skills, projects, and contact information in a clean an
 ![Home Page](screenshots/Home.png)
 
 ### Dark Mode
-![Dark Mode](screenshots/dark-mode.png)
+![Dark Mode](screenshots/dark.png)
 
 ### Projects Section
 ![Projects](screenshots/projects.png)
