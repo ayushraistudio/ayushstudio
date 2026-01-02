@@ -6,12 +6,14 @@ import project3 from '../assets/images/project3.webp';
 
 const projects = [
   {
-    title: "Portfolio Website",
-    desc: "Responsive portfolio with dark mode, animations and accessibility-first design.",
+      
+    title: "Neon GitHub Trophy",
+    desc: "Automated profile stats generator featuring neon glassmorphism, streak tracking, and daily updates via GitHub Actions.",
     img: project1,
-    tags: ["HTML", "CSS", "JS"],
-    demo: "https://ayushstudio.netlify.app",
-    code: "https://github.com/ayushraistudio/portfolio-2",
+    tags: ["Node.js", "GitHub Actions", "GraphQL", "SVG"],
+    demo: "https://github.com/ayushraistudio/ayush-trophy",
+    code: "https://github.com/ayushraistudio/ayush-trophy",
+  
   },
   {
     title: "Exam Portal",
