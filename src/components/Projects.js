@@ -3,17 +3,25 @@ import './Projects.css';
 import project1 from '../assets/images/project1.webp';
 import project2 from '../assets/images/project2.webp';
 import project3 from '../assets/images/project3.webp';
+// Bas yeh ek nayi line add ki hai image ke liye
+import project4 from '../assets/images/project4.webp';
 
 const projects = [
   {
-      
+    title: "Private Chat App",
+    desc: "Secure PWA messaging app with Unique IDs, Global/Private chat, delete-for-everyone, and Glassmorphism UI.",
+    img: project4,
+    tags: ["JavaScript", "Firebase", "PWA", "CSS3"],
+    demo: "https://ayushraistudio.github.io/private-chat/",
+    code: "https://github.com/ayushraistudio/private-chat",
+  },
+  {   
     title: "Neon GitHub Trophy",
     desc: "Automated profile stats generator featuring neon glassmorphism, streak tracking, and daily updates via GitHub Actions.",
     img: project1,
     tags: ["Node.js", "GitHub Actions", "GraphQL", "SVG"],
     demo: "https://github.com/ayushraistudio/ayush-trophy",
     code: "https://github.com/ayushraistudio/ayush-trophy",
-  
   },
   {
     title: "Exam Portal",
