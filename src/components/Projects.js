@@ -3,7 +3,7 @@ import './Projects.css';
 import project1 from '../assets/images/project1.webp';
 import project2 from '../assets/images/project2.webp';
 import project3 from '../assets/images/project3.webp';
-// Bas yeh ek nayi line add ki hai image ke liye
+
 import project4 from '../assets/images/project4.webp';
 
 const projects = [
