@@ -12,7 +12,7 @@ const projects = [
     desc: "Secure PWA messaging app with Unique IDs, Global/Private chat, delete-for-everyone, and Glassmorphism UI.",
     img: project4,
     tags: ["JavaScript", "Firebase", "PWA", "CSS3"],
-    demo: "https://ayushraistudio.github.io/private-chat/",
+    demo: "https://ayushraistudio.github.io/Private-chat/",
     code: "https://github.com/ayushraistudio/private-chat",
   },
   {   
