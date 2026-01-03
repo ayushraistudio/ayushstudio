@@ -37,7 +37,7 @@ const projects = [
     img: project3,
     tags: ["HTML", "CSS", "JS", "Firebase"],
     demo: "https://143-letter.netlify.app",
-    code: "https://github.com/ayushraistudio/love-letter",
+    code: "https://github.com/ayushraistudio/love-letter-service",
   },
 ];
 
