@@ -36,7 +36,7 @@ const projects = [
     desc: "Lightweight JS tool to create minimalist posters — drag, edit, export.",
     img: project3,
     tags: ["HTML", "CSS", "JS", "Firebase"],
-    demo: "https://143-letter.netlify.app",
+    demo: "https://love-letter-service.netlify.app",
     code: "https://github.com/ayushraistudio/love-letter-service",
   },
 ];
