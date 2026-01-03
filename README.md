@@ -20,7 +20,7 @@
 
 ## 📸 Screenshots
 
-> **Note:** Screenshots are arranged in a grid for a cleaner view.
+
 
 | **🏠 Home Page** | **🌙 Dark Mode** |
 | :---: | :---: |
