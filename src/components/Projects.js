@@ -5,6 +5,7 @@ import project2 from '../assets/images/project2.webp';
 import project3 from '../assets/images/project3.webp';
 import project4 from '../assets/images/project4.webp';
 
+
 const projects = [
   {
     title: "Private Chat App",
