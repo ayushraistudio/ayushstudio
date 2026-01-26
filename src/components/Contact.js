@@ -1,14 +1,19 @@
-
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser'; 
 import './Contact.css';
-
 
 const Contact = () => {
   const [msg, setMsg] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // ✅ Check: Agar internet nahi hai to user ko bata do
+    if (!navigator.onLine) {
+      setMsg('⚠️ You are currently offline. Please connect to the internet to send a message.');
+      return;
+    }
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -18,6 +23,8 @@ const Contact = () => {
       setMsg('Please fill all fields.');
       return;
     }
+
+    setMsg('Sending...'); // Thoda user feedback
 
     emailjs.send(
       'service_o8mz9f4',        // your Service ID
