@@ -22,7 +22,8 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   transform: translateY(20px);
   opacity: 0;
-  transition: 0.6s, box-shadow 0.3s;
+  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensures image zoom stays inside card */
 }
 
 .card.visible {
@@ -31,13 +32,26 @@
 }
 
 .card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform: translateY(-5px); /* Lift card slightly on hover */
+}
+
+/* Image container for better control */
+.card .img-container {
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .card img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  aspect-ratio: 16/10; /* Maintains consistent height across all images */
+  object-fit: cover; /* Prevents image stretching */
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08); /* Zoom effect on hover */
 }
 
 .card h3 {
@@ -50,7 +64,7 @@
   font-size: 0.95rem;
   margin-bottom: 12px;
   color: #333;
-  transition: color 0.3s ease;
+  line-height: 1.5;
 }
 
 /* Tags section */
@@ -63,11 +77,11 @@
 }
 
 .tag {
-  padding: 5px 12px;
+  padding: 4px 12px;
   border-radius: 25px;
   background: #007bff;
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
@@ -76,20 +90,22 @@
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .project-links a {
-  padding: 5px 12px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
   text-decoration: none;
   background: #222;
   color: #fff;
-  transition: 0.3s;
+  font-size: 0.9rem;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .project-links a:hover {
   background: #007bff;
+  transform: scale(1.05);
 }
 
 /* 🌙 Dark Mode Styles */
@@ -126,16 +142,15 @@
     padding: 60px 5%;
   }
 
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
   .card h3 {
     font-size: 1.1rem;
   }
 
   .card p {
     font-size: 0.9rem;
-  }
-
-  .tag {
-    font-size: 0.8rem;
-    padding: 5px 10px;
   }
 }
