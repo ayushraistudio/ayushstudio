@@ -4,8 +4,17 @@ import project1 from '../assets/images/project1.webp';
 import project2 from '../assets/images/project2.webp';
 import project3 from '../assets/images/project3.webp';
 import project4 from '../assets/images/project4.webp';
+import project5 from '../assets/images/project5.webp';
 
 const projects = [
+  {
+    title: "React Behavior Guard (NPM Library) 🛡️",
+    desc: "A production-ready NPM package to detect suspicious behavioral patterns like tab switching and copy-paste with real-time risk scoring.",
+    img: project5,
+    tags: ["React", "TypeScript", "NPM", "Security"],
+    demo: "https://www.npmjs.com/package/react-behavior-guard",
+    code: "https://github.com/ayushraistudio/react-behavior-guard",
+  },
   {
     title: "Private Chat App",
     desc: "Secure PWA messaging app with Unique IDs, Global/Private chat, delete-for-everyone, and Glassmorphism UI.",
@@ -15,12 +24,11 @@ const projects = [
     code: "https://github.com/ayushraistudio/private-chat",
   },
   {   
-    title: "GitHub Trophy API", // Title update kiya
-    // Description me "Serverless" aur "Multi-theme" add kiya
+    title: "GitHub Trophy API",
     desc: "Dynamic serverless API to showcase GitHub stats with 6+ themes (Hacker, Neon, Matrix). Includes a dedicated landing page.",
     img: project1,
     tags: ["Node.js", "Vercel", "SVG Gen", "GitHub Actions"],
-    demo: "https://personal-trophy.vercel.app/", // YHA CHANGE HAI: Landing page ka link
+    demo: "https://personal-trophy.vercel.app/",
     code: "https://github.com/ayushraistudio/github-contribution-showcase",
   },
   {
@@ -42,7 +50,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  // Ref array banaya taaki direct DOM select na karna pade
   const cardRefs = useRef([]);
 
   useEffect(() => {
@@ -55,7 +62,7 @@ const Projects = () => {
           }
         });
       },
-      { threshold: 0.1 } // Thoda jaldi dikhne ke liye 0.1 kar diya
+      { threshold: 0.1 }
     );
 
     cardRefs.current.forEach((card) => {
@@ -73,7 +80,6 @@ const Projects = () => {
           <article 
             className="card" 
             key={i}
-            // Ref assign kar rahe hain
             ref={(el) => (cardRefs.current[i] = el)}
           >
             <div className="img-container">
@@ -105,7 +111,6 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-demo"
-                    aria-label={`View live demo of ${p.title}`}
                 >
                     Live Demo 🚀
                 </a>
@@ -114,7 +119,6 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-code"
-                    aria-label={`View source code of ${p.title}`}
                 >
                     Source Code 💻
                 </a>
