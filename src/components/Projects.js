@@ -90,14 +90,16 @@ const WebsitePreview = ({ url, title }) => {
         </div>
       )}
 
-      <iframe
-        src={url}
-        title={`${title} live website preview`}
-        loading="lazy"
-        onLoad={() => setLoading(false)}
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-        referrerPolicy="strict-origin-when-cross-origin"
-      />
+      <div className="website-preview-viewport">
+        <iframe
+          src={url}
+          title={`${title} live website preview`}
+          loading="lazy"
+          onLoad={() => setLoading(false)}
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      </div>
     </div>
   );
 };
