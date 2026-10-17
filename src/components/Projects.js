@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Projects.css";
 
 import project1 from "../assets/images/project1.webp";
+import project1 from "../assets/images/portfolio.jpg";
 import project2 from "../assets/images/project2.webp";
 import project3 from "../assets/images/project3.webp";
 import project4 from "../assets/images/project4.webp";
@@ -11,7 +12,7 @@ const projects = [
   {
     title: "Ayush OS — AI-Powered Portfolio",
     desc: "An interactive macOS-inspired portfolio featuring modern UI/UX, dynamic desktop-style interactions, AI integrations, and innovative web experiences. Built to showcase projects, skills, and digital creativity.",
-    img: project1,
+    img: portfolio.jpg,
     tags: ["React", "Next.js", "AI Integration", "UI/UX", "Web Development"],
     demo: "https://ayushos.vercel.app/",
     code: "https://github.com/ayushraistudio",
