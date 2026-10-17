@@ -1,15 +1,32 @@
-import React, { useEffect, useRef } from 'react';
-import './Projects.css';
-import project1 from '../assets/images/project1.webp';
-import project2 from '../assets/images/project2.webp';
-import project3 from '../assets/images/project3.webp';
-import project4 from '../assets/images/project4.webp';
-import project5 from '../assets/images/project5.webp';
+import React, { useEffect, useRef } from "react";
+import "./Projects.css";
+
+import project1 from "../assets/images/project1.webp";
+import project2 from "../assets/images/project2.webp";
+import project3 from "../assets/images/project3.webp";
+import project4 from "../assets/images/project4.webp";
+import project5 from "../assets/images/project5.webp";
 
 const projects = [
   {
+    title: "Ayush OS — AI-Powered Portfolio",
+    desc: "An interactive macOS-inspired portfolio featuring modern UI/UX, dynamic desktop-style interactions, AI integrations, and innovative web experiences. Built to showcase projects, skills, and digital creativity.",
+    img: project1,
+    tags: ["React", "Next.js", "AI Integration", "UI/UX", "Web Development"],
+    demo: "https://ayushos.vercel.app/",
+    code: "https://github.com/ayushraistudio",
+  },
+  {
+    title: "Love Letter Maker",
+    desc: "An interactive digital love letter platform for creating personalized letters with custom designs, creative themes, photo support, and engaging visual experiences.",
+    img: project3,
+    tags: ["HTML5", "CSS3", "JavaScript", "Firebase", "AI Integration"],
+    demo: "https://love-letter-service.netlify.app/",
+    code: "https://github.com/ayushraistudio/Love-Letter-Service",
+  },
+  {
     title: "React Behavior Guard (NPM Library) 🛡️",
-    desc: "A production-ready NPM package to detect suspicious behavioral patterns like tab switching and copy-paste with real-time risk scoring.",
+    desc: "A production-ready NPM package designed to track suspicious behavioral patterns, including tab switching and copy-paste activity, with real-time risk scoring for web sessions.",
     img: project5,
     tags: ["React", "TypeScript", "NPM", "Security"],
     demo: "https://www.npmjs.com/package/react-behavior-guard",
@@ -17,35 +34,43 @@ const projects = [
   },
   {
     title: "Private Chat App",
-    desc: "Secure PWA messaging app with Unique IDs, Global/Private chat, delete-for-everyone, and Glassmorphism UI.",
+    desc: "A progressive web messaging application featuring unique user IDs, global and private chat, message deletion, and a modern glassmorphism interface.",
     img: project4,
     tags: ["JavaScript", "Firebase", "PWA", "CSS3"],
     demo: "https://ayushraistudio.github.io/Private-chat/",
     code: "https://github.com/ayushraistudio/private-chat",
   },
-  {   
-    title: "GitHub Trophy API",
-    desc: "Dynamic serverless API to showcase GitHub stats with 6+ themes (Hacker, Neon, Matrix). Includes a dedicated landing page.",
+  {
+    title: "GitHub Contribution Showcase API",
+    desc: "A GitHub GraphQL-powered API that displays contribution streaks, active days, total contributions, and user activity through customizable SVG widgets and visual themes.",
     img: project1,
-    tags: ["Node.js", "Vercel", "SVG Gen", "GitHub Actions"],
+    tags: ["Next.js", "TypeScript", "GitHub GraphQL", "SVG", "Vercel"],
     demo: "https://personal-trophy.vercel.app/",
     code: "https://github.com/ayushraistudio/github-contribution-showcase",
   },
   {
     title: "Exam Portal",
-    desc: "Secure online exam system with role-based access (Admin/Student) using React & Firebase Auth.",
+    desc: "A secure online examination platform featuring MCQ tests, student authentication, administrative controls, and Firebase-powered data management.",
     img: project2,
-    tags: ["React", "Tailwind CSS", "Firebase", "Context API"],
-    demo: "https://exam-porta.vercel.app",
+    tags: ["React", "Firebase", "Authentication", "Tailwind CSS"],
+    demo: "https://exam-porta.vercel.app/",
     code: "https://github.com/ayushraistudio/exam-portal",
   },
   {
-    title: "Love Letter Maker",
-    desc: "Interactive tool to design and export minimalist love letters. Drag-and-drop customization.",
-    img: project3,
-    tags: ["HTML5", "CSS3", "Vanilla JS", "Firebase"],
-    demo: "https://love-letter-service.netlify.app",
-    code: "https://github.com/ayushraistudio/love-letter-service",
+    title: "AI Krishi Advisor",
+    desc: "An AI-powered agriculture application designed to help users explore crop and plant-related information through machine-learning concepts and image-based plant disease identification workflows.",
+    img: project2,
+    tags: ["React", "Python", "Machine Learning", "AI/ML"],
+    demo: "https://kisan-saaathi.vercel.app/",
+    code: "https://github.com/ayushraistudio/kisan",
+  },
+  {
+    title: "AIML-Based Nowcasting",
+    desc: "A weather-risk prediction system that combines atmospheric observations and radar-image sequences to estimate thunderstorm and lightning risk using machine-learning models.",
+    img: project4,
+    tags: ["Next.js", "FastAPI", "XGBoost", "ConvLSTM", "AI/ML"],
+    demo: "https://nowcastai.vercel.app/",
+    code: "https://github.com/ayushraistudio/nowcast",
   },
 ];
 
@@ -55,10 +80,10 @@ const Projects = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            observer.unobserve(e.target);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -75,54 +100,61 @@ const Projects = () => {
   return (
     <section id="projects" aria-label="Portfolio Projects">
       <h2>Selected Projects</h2>
+
       <div className="grid">
-        {projects.map((p, i) => (
-          <article 
-            className="card" 
-            key={i}
-            ref={(el) => (cardRefs.current[i] = el)}
+        {projects.map((project, index) => (
+          <article
+            className="card"
+            key={project.title}
+            ref={(element) => {
+              cardRefs.current[index] = element;
+            }}
           >
             <div className="img-container">
-                <img
-                src={p.img}
-                alt={`${p.title} project screenshot`}
+              <img
+                src={project.img}
+                alt={`${project.title} project screenshot`}
                 loading="lazy"
                 decoding="async"
                 width="400"
                 height="260"
-                />
+              />
             </div>
-            
+
             <div className="card-content">
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
+              <h3>{project.title}</h3>
 
-                <div className="tags">
-                {p.tags.map((t, j) => (
-                    <span className="tag" key={j}>
-                    {t}
-                    </span>
+              <p>{project.desc}</p>
+
+              <div className="tags">
+                {project.tags.map((tag) => (
+                  <span className="tag" key={tag}>
+                    {tag}
+                  </span>
                 ))}
-                </div>
+              </div>
 
-                <div className="project-links">
+              <div className="project-links">
                 <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-demo"
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-demo"
+                  aria-label={`View ${project.title} live demo`}
                 >
-                    Live Demo 🚀
+                  Live Demo 🚀
                 </a>
+
                 <a
-                    href={p.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-code"
+                  href={project.code}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-code"
+                  aria-label={`View ${project.title} source code`}
                 >
-                    Source Code 💻
+                  Source Code 💻
                 </a>
-                </div>
+              </div>
             </div>
           </article>
         ))}
