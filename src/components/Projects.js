@@ -61,7 +61,6 @@ const projects = [
     title: "AI Krishi Advisor",
     desc: "An AI-powered agriculture application designed to help users explore crop and plant-related information through machine-learning concepts and image-based plant disease identification workflows.",
     type: "iframe",
-    img: project2,
     tags: ["React", "Python", "Machine Learning", "AI/ML"],
     demo: "https://kisan-saaathi.vercel.app/",
     code: "https://github.com/ayushraistudio/kisan",
@@ -70,19 +69,54 @@ const projects = [
     title: "AIML-Based Nowcasting",
     desc: "A weather-risk prediction system that combines atmospheric observations and radar-image sequences to estimate thunderstorm and lightning risk using machine-learning models.",
     type: "iframe",
-    img: project4,
     tags: ["Next.js", "FastAPI", "XGBoost", "ConvLSTM", "AI/ML"],
     demo: "https://nowcastai.vercel.app/",
     code: "https://github.com/ayushraistudio/nowcast",
   },
 ];
 
-/* Live website preview */
+/* Live Website Preview */
 const WebsitePreview = ({ url, title }) => {
   const [loading, setLoading] = useState(true);
 
+  const containerRef = useRef(null);
+  const viewportRef = useRef(null);
+
+  // Automatically scale the desktop viewport to fit the image box.
+  useEffect(() => {
+    const container = containerRef.current;
+    const viewport = viewportRef.current;
+
+    if (!container || !viewport) return;
+
+    const updateScale = () => {
+      const containerWidth = container.clientWidth;
+
+      if (!containerWidth) return;
+
+      const scale = containerWidth / 1280;
+
+      viewport.style.transform = `scale(${scale})`;
+    };
+
+    const resizeObserver = new ResizeObserver(updateScale);
+
+    resizeObserver.observe(container);
+
+    updateScale();
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  // Show the spinner whenever this preview URL changes.
+  useEffect(() => {
+    setLoading(true);
+  }, [url]);
+
   return (
-    <div className="website-preview">
+    <div className="website-preview" ref={containerRef}>
       {loading && (
         <div className="preview-loader">
           <div className="preview-spinner" />
@@ -90,7 +124,7 @@ const WebsitePreview = ({ url, title }) => {
         </div>
       )}
 
-      <div className="website-preview-viewport">
+      <div className="website-preview-viewport" ref={viewportRef}>
         <iframe
           src={url}
           title={`${title} live website preview`}
@@ -104,6 +138,7 @@ const WebsitePreview = ({ url, title }) => {
   );
 };
 
+/* Projects Component */
 const Projects = () => {
   const cardRefs = useRef([]);
 
@@ -121,10 +156,14 @@ const Projects = () => {
     );
 
     cardRefs.current.forEach((card) => {
-      if (card) observer.observe(card);
+      if (card) {
+        observer.observe(card);
+      }
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
