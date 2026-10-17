@@ -179,7 +179,8 @@ const Projects = () => {
               cardRefs.current[index] = element;
             }}
           >
-            <div className="img-container">
+            {/* Added conditionally iframe-container class for proper scoping */}
+            <div className={`img-container ${project.type === "iframe" ? "iframe-container" : ""}`}>
               {project.type === "iframe" ? (
                 <WebsitePreview
                   url={project.demo}
