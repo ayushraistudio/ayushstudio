@@ -7,11 +7,12 @@
   margin-bottom: 30px;
 }
 
-/* Grid layout for project cards */
+/* Projects grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 25px;
+  align-items: stretch;
 }
 
 /* Individual project card */
@@ -19,11 +20,17 @@
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(20px);
   opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* Ensures image zoom stays inside card */
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .card.visible {
@@ -32,26 +39,35 @@
 }
 
 .card:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  transform: translateY(-5px); /* Lift card slightly on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
-/* Image container for better control */
+/* Project image */
 .card .img-container {
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 15px;
+  background: #f1f1f1;
 }
 
 .card img {
+  display: block;
   width: 100%;
-  aspect-ratio: 16/10; /* Maintains consistent height across all images */
-  object-fit: cover; /* Prevents image stretching */
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
 .card:hover img {
-  transform: scale(1.08); /* Zoom effect on hover */
+  transform: scale(1.08);
+}
+
+/* Project content */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card h3 {
@@ -67,13 +83,14 @@
   line-height: 1.5;
 }
 
-/* Tags section */
+/* Technology tags */
 .tags {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .tag {
@@ -85,22 +102,29 @@
   font-weight: 500;
 }
 
-/* Project links buttons */
+/* Project action buttons */
 .project-links {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 15px;
 }
 
 .project-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
   background: #222;
   color: #fff;
   font-size: 0.9rem;
-  transition: background 0.3s, transform 0.2s;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 
 .project-links a:hover {
@@ -108,7 +132,12 @@
   transform: scale(1.05);
 }
 
-/* 🌙 Dark Mode Styles */
+.project-links a:focus-visible {
+  outline: 3px solid #80bdff;
+  outline-offset: 3px;
+}
+
+/* Dark mode */
 .App.dark #projects {
   background: #111;
   color: #eee;
@@ -116,7 +145,11 @@
 
 .App.dark .card {
   background: #1b1b1b;
-  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+.App.dark .card:hover {
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
 }
 
 .App.dark .card h3 {
@@ -125,6 +158,10 @@
 
 .App.dark .card p {
   color: #ccc;
+}
+
+.App.dark .card .img-container {
+  background: #252525;
 }
 
 .App.dark .project-links a {
@@ -136,7 +173,7 @@
   background: #09f;
 }
 
-/* Mobile responsive */
+/* Tablet and mobile responsive */
 @media (max-width: 768px) {
   #projects {
     padding: 60px 5%;
@@ -144,6 +181,11 @@
 
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    padding: 16px;
   }
 
   .card h3 {
@@ -152,5 +194,43 @@
 
   .card p {
     font-size: 0.9rem;
+  }
+
+  .project-links a {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  #projects {
+    padding: 45px 5%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-links {
+    gap: 8px;
+  }
+
+  .project-links a {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card img,
+  .project-links a {
+    transition: none;
+  }
+
+  .card {
+    transform: none;
   }
 }
