@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import profileImg from '../assets/images/profile.webp';
-import resumePdf from '../assets/resume/resume.pdf';
+import resumePdf from '../assets/resume/Ayush_Rai_Resume.pdf';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
 import { Link } from 'react-router-dom'; 
