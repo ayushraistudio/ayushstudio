@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Projects.css";
 
 import project1 from "../assets/images/project1.webp";
@@ -59,6 +59,7 @@ const projects = [
   {
     title: "AI Krishi Advisor",
     desc: "An AI-powered agriculture application designed to help users explore crop and plant-related information through machine-learning concepts and image-based plant disease identification workflows.",
+    type: "iframe"
     img: project2,
     tags: ["React", "Python", "Machine Learning", "AI/ML"],
     demo: "https://kisan-saaathi.vercel.app/",
@@ -67,12 +68,65 @@ const projects = [
   {
     title: "AIML-Based Nowcasting",
     desc: "A weather-risk prediction system that combines atmospheric observations and radar-image sequences to estimate thunderstorm and lightning risk using machine-learning models.",
+    type: "iframe"
     img: project4,
     tags: ["Next.js", "FastAPI", "XGBoost", "ConvLSTM", "AI/ML"],
     demo: "https://nowcastai.vercel.app/",
     code: "https://github.com/ayushraistudio/nowcast",
   },
 ];
+
+const WebsitePreview = ({ url, title }) => {
+  const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setFailed(false);
+
+    const timeout = setTimeout(() => {
+      setFailed(true);
+      setLoading(false);
+    }, 15000);
+
+    return () => clearTimeout(timeout);
+  }, [url]);
+
+  return (
+    <div className="website-preview">
+      {loading && !failed && (
+        <div className="preview-loader">
+          <div className="preview-spinner" />
+          <span>Loading live website...</span>
+        </div>
+      )}
+
+      {failed ? (
+        <div className="preview-fallback">
+          <p>Live preview unavailable.</p>
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            Open Website ↗
+          </a>
+        </div>
+      ) : (
+        <iframe
+          src={url}
+          title={`${title} live website preview`}
+          loading="lazy"
+          onLoad={() => {
+            setLoading(false);
+          }}
+          onError={() => {
+            setLoading(false);
+            setFailed(true);
+          }}
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      )}
+    </div>
+  );
+};
 
 const Projects = () => {
   const cardRefs = useRef([]);
@@ -110,16 +164,23 @@ const Projects = () => {
               cardRefs.current[index] = element;
             }}
           >
-            <div className="img-container">
-              <img
-                src={project.img}
-                alt={`${project.title} project screenshot`}
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="260"
-              />
-            </div>
+          <div className="img-container">
+  {project.type === "iframe" ? (
+    <WebsitePreview
+      url={project.demo}
+      title={project.title}
+    />
+  ) : (
+    <img
+      src={project.img}
+      alt={`${project.title} project screenshot`}
+      loading="lazy"
+      decoding="async"
+      width="400"
+      height="260"
+    />
+  )}
+</div>
 
             <div className="card-content">
               <h3>{project.title}</h3>
