@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Projects.css";
 
 import project1 from "../assets/images/project1.webp";
-import project1 from "../assets/images/portfolio.jpg";
+import portfolio from "../assets/images/portfolio.jpg";
 import project2 from "../assets/images/project2.webp";
 import project3 from "../assets/images/project3.webp";
 import project4 from "../assets/images/project4.webp";
@@ -12,7 +12,7 @@ const projects = [
   {
     title: "Ayush OS — AI-Powered Portfolio",
     desc: "An interactive macOS-inspired portfolio featuring modern UI/UX, dynamic desktop-style interactions, AI integrations, and innovative web experiences. Built to showcase projects, skills, and digital creativity.",
-    img: portfolio.jpg,
+    img: portfolio,
     tags: ["React", "Next.js", "AI Integration", "UI/UX", "Web Development"],
     demo: "https://ayushos.vercel.app/",
     code: "https://github.com/ayushraistudio",
@@ -60,7 +60,7 @@ const projects = [
   {
     title: "AI Krishi Advisor",
     desc: "An AI-powered agriculture application designed to help users explore crop and plant-related information through machine-learning concepts and image-based plant disease identification workflows.",
-    type: "iframe"
+    type: "iframe",
     img: project2,
     tags: ["React", "Python", "Machine Learning", "AI/ML"],
     demo: "https://kisan-saaathi.vercel.app/",
@@ -69,7 +69,7 @@ const projects = [
   {
     title: "AIML-Based Nowcasting",
     desc: "A weather-risk prediction system that combines atmospheric observations and radar-image sequences to estimate thunderstorm and lightning risk using machine-learning models.",
-    type: "iframe"
+    type: "iframe",
     img: project4,
     tags: ["Next.js", "FastAPI", "XGBoost", "ConvLSTM", "AI/ML"],
     demo: "https://nowcastai.vercel.app/",
@@ -77,54 +77,27 @@ const projects = [
   },
 ];
 
+/* Live website preview */
 const WebsitePreview = ({ url, title }) => {
   const [loading, setLoading] = useState(true);
-  const [failed, setFailed] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setFailed(false);
-
-    const timeout = setTimeout(() => {
-      setFailed(true);
-      setLoading(false);
-    }, 15000);
-
-    return () => clearTimeout(timeout);
-  }, [url]);
 
   return (
     <div className="website-preview">
-      {loading && !failed && (
+      {loading && (
         <div className="preview-loader">
           <div className="preview-spinner" />
           <span>Loading live website...</span>
         </div>
       )}
 
-      {failed ? (
-        <div className="preview-fallback">
-          <p>Live preview unavailable.</p>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            Open Website ↗
-          </a>
-        </div>
-      ) : (
-        <iframe
-          src={url}
-          title={`${title} live website preview`}
-          loading="lazy"
-          onLoad={() => {
-            setLoading(false);
-          }}
-          onError={() => {
-            setLoading(false);
-            setFailed(true);
-          }}
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      )}
+      <iframe
+        src={url}
+        title={`${title} live website preview`}
+        loading="lazy"
+        onLoad={() => setLoading(false)}
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
     </div>
   );
 };
@@ -165,23 +138,23 @@ const Projects = () => {
               cardRefs.current[index] = element;
             }}
           >
-          <div className="img-container">
-  {project.type === "iframe" ? (
-    <WebsitePreview
-      url={project.demo}
-      title={project.title}
-    />
-  ) : (
-    <img
-      src={project.img}
-      alt={`${project.title} project screenshot`}
-      loading="lazy"
-      decoding="async"
-      width="400"
-      height="260"
-    />
-  )}
-</div>
+            <div className="img-container">
+              {project.type === "iframe" ? (
+                <WebsitePreview
+                  url={project.demo}
+                  title={project.title}
+                />
+              ) : (
+                <img
+                  src={project.img}
+                  alt={`${project.title} project screenshot`}
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="260"
+                />
+              )}
+            </div>
 
             <div className="card-content">
               <h3>{project.title}</h3>
