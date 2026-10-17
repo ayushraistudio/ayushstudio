@@ -32,9 +32,9 @@ const Hero = () => {
           {/* ✅ Fixed: Use React Router Link instead of href="#projects" */}
           <Link className="btn" to="/projects">View Projects</Link>
 
-          <a className="btn-secondary" href="mailto:info@ayushraistudio.com">
-            Contact Me
-          </a>
+          <Link className="btn-secondary" to="/contact">
+  Contact Me
+</Link>
 
           <a className="btn" href={resumePdf} download>
             Download Resume
