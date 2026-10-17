@@ -15,26 +15,34 @@ const Footer = lazy(() => import("./components/Footer"));
 // ✅ New Portfolio Redirect Modal Component
 const PortfolioRedirectModal = () => {
   const [countdown, setCountdown] = useState(7);
+  const [isModalVisible, setIsModalVisible] = useState(true);
   const newPortfolioUrl = "https://ayushos.vercel.app/";
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prevCount) => {
-        if (prevCount <= 1) {
-          clearInterval(timer);
-          window.location.href = newPortfolioUrl;
-          return 0;
-        }
-        return prevCount - 1;
-      });
-    }, 1000);
+useEffect(() => {
+  if (!isModalVisible) return;
 
-    return () => clearInterval(timer);
-  }, []);
+  const timer = setInterval(() => {
+    setCountdown((prevCount) => {
+      if (prevCount <= 1) {
+        clearInterval(timer);
+        window.location.href = newPortfolioUrl;
+        return 0;
+      }
+
+      return prevCount - 1;
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, [isModalVisible]);
 
   const handleManualRedirect = () => {
     window.location.href = newPortfolioUrl;
   };
+
+  const handleOldPortfolio = () => {
+  setIsModalVisible(false);
+};
 
   const overlayStyle = {
     position: "fixed",
@@ -92,6 +100,7 @@ const PortfolioRedirectModal = () => {
     boxShadow: "0 4px 10px rgba(0, 123, 255, 0.3)",
   };
 
+  if (!isModalVisible) return null;
   return (
     <div style={overlayStyle}>
       <div style={modalStyle}>
@@ -99,14 +108,41 @@ const PortfolioRedirectModal = () => {
         <p style={textStyle}>
           I have moved to a new and improved space. You will be automatically redirected to my new portfolio in <strong>{countdown}</strong> seconds.
         </p>
-        <button 
-          style={buttonStyle} 
-          onClick={handleManualRedirect}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#007BFF")}
-        >
-          Go to New Portfolio Now
-        </button>
+       <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    marginTop: "15px",
+  }}
+>
+  {/* New Portfolio Button */}
+  <button
+    style={buttonStyle}
+    onClick={handleManualRedirect}
+    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0056b3")}
+    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#007BFF")}
+  >
+    Explore New Portfolio →
+  </button>
+
+  {/* Old Portfolio Button */}
+  <button
+    style={{
+      ...buttonStyle,
+      marginTop: "0",
+      color: "#333333",
+      backgroundColor: "#f1f1f1",
+      boxShadow: "none",
+      border: "1px solid #dddddd",
+    }}
+    onClick={handleOldPortfolio}
+    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#e2e2e2")}
+    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#f1f1f1")}
+  >
+    Continue to Old Portfolio
+  </button>
+</div>
       </div>
     </div>
   );
@@ -172,6 +208,7 @@ function App() {
     </div>
   );
 
+ 
   return (
     <div className={`App ${theme}`}>
       {/* 🚀 New Portfolio Redirect Modal rendering on top of everything */}
